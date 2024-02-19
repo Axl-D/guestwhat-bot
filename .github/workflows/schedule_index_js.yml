@@ -23,5 +23,5 @@ jobs:
       - name: Run index.js
         run: node index.js
         env:
-          CHANNEL_ID: ${{ secrets.channelId }}
-          BOT_TOKEN: ${{ secrets.botToken }}
+          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
