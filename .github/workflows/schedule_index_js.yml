@@ -1,0 +1,28 @@
+name: Schedule index.js Execution
+
+on:
+  schedule:
+    # Runs at 9:00 AM every Monday, Wednesday, and Friday
+    - cron: '0 9 * * 1,3,5'
+    workflow_dispatch:
+
+jobs:
+  run_index_js:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14' # Use the node version compatible with your project
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run index.js
+      run: node index.js
+      env:
+        CHANNEL_ID: ${{ secrets.channelId }}
+        BOT_TOKEN: ${{ secrets.botToken }}
