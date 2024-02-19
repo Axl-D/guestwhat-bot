@@ -1,0 +1,7 @@
+steps:
+  - name: Run your action
+    env:
+      CHANNEL_ID: ${{ secrets.channelId }}
+      BOT_TOKEN: ${{ secrets.botToken }}
+    run: |
+      # Your action commands here
