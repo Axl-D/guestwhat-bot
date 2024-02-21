@@ -22,11 +22,15 @@ client.on("ready", () => {
       message
         .react("✅")
         .then(() => message.react("❌"))
-        .then(() => console.log("Reactions added successfully"))
+        .then(() => {
+          console.log("Reactions added successfully");
+          process.exit();
+        })
         .catch((error) => console.error("Failed to add reaction:", error));
     })
     .catch((error) => {
       console.error(`Failed to send message: ${error}`);
+      process.exit(1);
     });
 });
 
